@@ -1,0 +1,10 @@
+# secrets
+.env
+*.env
+.env.*
+*.key
+*.pem
+.aws/
+aws_credentials*
+*credentials*.json
+*secrets*.yml
