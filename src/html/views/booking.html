@@ -1,0 +1,159 @@
+<% var data = {
+title: "Bookings",
+}; %>
+<%= _.template(require('./../includes/header.html').default)(data) %>
+
+<% var privateLessons = {
+title: "Annette Black",
+time: "6:00 – 8:00 pm",
+variant: 'privateLessons',
+isPaymentDone: true,
+top: 0,
+timeRange: "30min",
+corts: 2
+}; %>
+
+<% var seasonBooking = {
+title: "Julia Roberts",
+time: "6:00 – 8:00 pm",
+variant: 'seasonBooking',
+isPaymentDone: false,
+top: 0,
+timeRange: "1h",
+corts: 3
+}; %>
+
+<% var normalBooking = {
+title: "Tom Hanks",
+time: "6:00 – 8:00 pm",
+variant: 'normalBooking',
+isPaymentDone: true,
+top: 0,
+timeRange: "2h",
+corts: 2
+}; %>
+
+<% var completedBookings = {
+title: "Marlin Manson",
+time: "00:00 – 1:00 pm",
+variant: 'completedBookings',
+isPaymentDone: false,
+top: 0,
+timeRange: "15min",
+corts: 2
+}; %>
+
+<% var events = {
+title: "Jak Black",
+time: "09:00 – 10:00 pm",
+variant: 'events',
+isPaymentDone: true,
+top: 0,
+timeRange: "3h",
+corts: 3
+}; %>
+
+<%
+var timeBlocks = ["14:00 pm", "15:00 pm", "16:00 pm"];
+%>
+
+<% const COURTS = 5; %>
+
+<main class="page__main">
+  <div class="flex flex-col gap-6 my-6">
+    <div class="flex justify-between items-center">
+      <h1 class="text-4xl text-center leading-[1] h-[40px]">Space Bookings</h1>
+      <%= _.template(require('./../includes/booking-filter.html').default) () %>
+    </div>
+    <div class="flex justify-between">
+      <%= _.template(require('./../includes/booking-tabs.html').default) () %>
+      <%= _.template(require('./../includes/booking-calendar-menu.html').default) () %>
+    </div>
+  </div>
+  <div class="bg-white rounded-[20px]">
+    <table class="table-fixed border-collapse w-full">
+      <thead>
+      <tr>
+        <th class="time-column">Time</th>
+        <% for (var i = 1; i <= 5; i++) { %>
+        <th class="courts">Court <%= i %></th>
+        <% } %>
+      </tr>
+      </thead>
+      <tbody>
+      <!-- 9:00 am -->
+      <tr class="h-[80px]">
+        <td class="time-column">9:00 am</td>
+        <td class="table-cell"></td>
+        <td class="table-cell relative">
+          <%= _.template(require('./../includes/booking-card.html').default)({...privateLessons}) %>
+        </td>
+        <td class="table-cell"></td>
+        <td class="table-cell"></td>
+        <td class="table-cell"></td>
+      </tr>
+
+      <!-- 10:00 am -->
+      <tr class="h-[80px]">
+        <td class="time-column">10:00 am</td>
+        <td class="table-cell relative">
+          <%= _.template(require('./../includes/booking-card.html').default)({...seasonBooking, top: 0}) %>
+        </td>
+        <% for (var c = 1; c <= 4; c++) { %>
+        <td class="table-cell"></td>
+        <% } %>
+      </tr>
+
+      <!-- 11:00 am -->
+      <tr class="h-[80px]">
+        <td class="time-column">11:00 am</td>
+        <td class="table-cell"></td>
+        <td class="table-cell"></td>
+        <td class="table-cell relative">
+          <%= _.template(require('./../includes/booking-card.html').default)({...normalBooking, top: 0}) %>
+        </td>
+        <td class="table-cell"></td>
+        <td class="table-cell"></td>
+
+      </tr>
+
+      <tr class="h-[80px]">
+        <td class="time-column">12:00 am</td>
+        <td class="table-cell align-top relative" style="min-height:<%= 4 * 16.5 + 3 * 2 %>px">
+          <div class="flex flex-col gap-[3px] relative">
+            <%= _.template(require('./../includes/booking-card.html').default)({...completedBookings, stackIndex: 0, gapPx: 2}) %>
+            <%= _.template(require('./../includes/booking-card.html').default)({...completedBookings, stackIndex: 1, gapPx: 2}) %>
+            <%= _.template(require('./../includes/booking-card.html').default)({...completedBookings, stackIndex: 2, gapPx: 2}) %>
+          </div>
+        </td>
+        <% for (var c = 1; c <= 4; c++) { %>
+        <td class="table-cell"></td>
+        <% } %>
+      </tr>
+
+      <tr class="h-[80px]">
+        <td class="time-column">13:00 am</td>
+        <td class="table-cell relative">
+          <%= _.template(require('./../includes/booking-card.html').default)({...events, top: 0}) %>
+        </td>
+        <% for (var c = 1; c <= 4; c++) { %>
+        <td class="table-cell"></td>
+        <% } %>
+      </tr>
+
+      <!-- 13:00 am split into 4 rows -->
+      <% timeBlocks.forEach(function(timeLabel) { %>
+      <tr class="h-[80px]">
+        <td class="time-column"><%= timeLabel %></td>
+        <% for (var c = 1; c <= 5; c++) { %>
+        <td class="table-cell"></td>
+        <% } %>
+      </tr>
+      <% }); %>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+
+<%= _.template(require('./../includes/footer.html').default)(data) %>

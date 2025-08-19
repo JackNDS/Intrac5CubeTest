@@ -1,0 +1,111 @@
+@import "flowbite/src/themes/default";
+@import "./booking.css";
+
+@font-face {
+  font-family: 'Aeonik Medium';
+  src: url('../fonts/Aeonik-Medium.woff2') format('woff2'),
+  url('../fonts/Aeonik-Medium.woff') format('woff'),
+  url('../fonts/Aeonik-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik Regular';
+  src: url('../fonts/Aeonik-Regular.woff2') format('woff2'),
+  url('../fonts/Aeonik-Regular.woff') format('woff'),
+  url('../fonts/Aeonik-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Aeonik Bold';
+  src: url('../fonts/Aeonik-Bold.woff2') format('woff2'),
+  url('../fonts/Aeonik-Bold.woff') format('woff'),
+  url('../fonts/Aeonik-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind utilities;
+@tailwind components;
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --font-aeonik-md: "Aeonik Medium", sans-serif;
+  --font-aeonik-reg: "Aeonik Regular", sans-serif;
+  --font-aeonik-bold: "Aeonik Bold", sans-serif;
+  --purple: #645BEF;
+  --purple-dark: #8E24AA;
+  --purple-100: #F3E5F5;
+  --main: #171E29;
+  --gray: #667085;
+  --gray-100: #F5F5F5;
+  --grey-neutral: #9E9E9E;
+  --gray-light: #EBEBEB;
+  --natural-white: #F8F8F8;
+  --bgc: #EAEAEA;
+  --green: #43A047;
+  --green-100: #E8F5E9;
+  --yellow: #FBC02D;
+  --yellow-100: #FFFDE7;
+  --blue: #1E88E5;
+  --blue-100: #E3F2FD;
+  --coral: #F36A6A;
+
+  --radius: 23px;
+}
+
+@layer utilities {
+  body {
+    @apply m-0 bg-bgc min-w-[375px] text-[14px] leading-normal font-aeonik-reg text-main;
+  }
+
+  video {
+    @apply border-0 outline-none;
+  }
+
+  ._bold {
+    @apply font-bold;
+  }
+
+  ul {
+    @apply list-none;
+  }
+
+  a {
+    @apply no-underline;
+  }
+
+  button {
+    @apply border-none bg-transparent text-inherit cursor-pointer outline-none;
+  }
+
+  img {
+    @apply block outline-none max-w-full;
+  }
+
+  .main-container {
+    @apply w-[1440px] max-w-full p-6 mx-auto;
+  }
+
+  .header {
+    @apply flex items-center h-[48px];
+  }
+
+  .nav-btn {
+    @apply text-gray hover:text-white flex h-[40px] px-6 py-5 items-center gap-[13px] rounded-[23px] hover:bg-purple active:shadow-[0_5px_12px_0_rgba(0,0,0,0.25)] disabled:opacity-50 transition-colors duration-300 ease-in-out;
+  }
+}

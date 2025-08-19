@@ -1,0 +1,180 @@
+<ul class="rounded-panel">
+  <li class="me-2">
+    <a href="#" class="booking-item-activated" aria-current="page">Cash Sale</a>
+  </li>
+  <li class="me-2">
+    <a
+      href="#"
+      class="booking-filter-btn"
+    >
+      Customers
+    </a>
+  </li>
+  <li class="me-2">
+    <a
+      href="#"
+      class="booking-filter-btn"
+    >
+      Users
+    </a>
+  </li>
+  <li class="me-2">
+    <button
+      id="functionsBtn"
+      data-dropdown-toggle="functions"
+      class="booking-filter-btn"
+    >
+      <span class="flex items-center gap-[6px]">
+        Functions
+        <img class="size-5" src='icons/chevron-down.svg' alt='a chevron'>
+      </span>
+    </button>
+    <!-- Dropdown menu -->
+    <div id="functions" class="z-50 hidden dropdown-menu ">
+      <ul class="flex flex-col gap-1 text-sm text-gray-700 dark:text-gray-200 " aria-labelledby="dropdownLargeButton">
+        <li>
+            <a href="#" class="group flex items-center justify-between dropdown-menu-item bg-white text-sm text-left  hover:bg-white" onclick="return false;">
+              <span>Cash Sale</span>
+              <!-- Hidden checkbox -->
+              <input id="fav-customers" type="checkbox" class="peer sr-only" checked />
+              <!-- SVG is sibling of the peer input -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    class="w-[18px] h-[18px]
+                            transition-[fill,stroke] duration-150
+                            fill-none stroke-none
+                            group-hover:stroke-[#afafaf]
+                            peer-checked:fill-[#645BEF] peer-checked:stroke-transparent cursor-pointer">
+                  <path d="M12 2.5c.4 0 .8.2 1 .5l2.1 4.3c.1.2.3.3.5.4l4.7.7c.8.1 1.1 1.1.5 1.7l-3.4 3.3c-.2.2-.2.4-.2.6l.8 4.7c.1.8-.7 1.4-1.4 1l-4.2-2.2c-.2-.1-.5-.1-.7 0l-4.2 2.2c-.7.4-1.5-.2-1.4-1l.8-4.7c0-.2 0-.5-.2-.6l-3.4-3.3c-.6-.6-.3-1.6.5-1.7l4.7-.7c.2 0 .4-.2.5-.4l2.1-4.3c.2-.3.6-.5 1-.5z"
+                        stroke-linejoin="round" stroke-linecap="round"/>
+                </svg>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="group flex items-center justify-between dropdown-menu-item bg-white text-sm text-left  hover:bg-white" onclick="return false;">
+              <span>Customers</span>
+              <!-- Hidden checkbox -->
+              <input id="fav-customers" type="checkbox" class="peer sr-only" checked />
+              <!-- SVG is sibling of the peer input -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    class="w-[18px] h-[18px]
+                            transition-[fill,stroke] duration-150
+                            fill-none stroke-none
+                            group-hover:stroke-[#afafaf]
+                            peer-checked:fill-[#645BEF] peer-checked:stroke-transparent cursor-pointer">
+                  <path d="M12 2.5c.4 0 .8.2 1 .5l2.1 4.3c.1.2.3.3.5.4l4.7.7c.8.1 1.1 1.1.5 1.7l-3.4 3.3c-.2.2-.2.4-.2.6l.8 4.7c.1.8-.7 1.4-1.4 1l-4.2-2.2c-.2-.1-.5-.1-.7 0l-4.2 2.2c-.7.4-1.5-.2-1.4-1l.8-4.7c0-.2 0-.5-.2-.6l-3.4-3.3c-.6-.6-.3-1.6.5-1.7l4.7-.7c.2 0 .4-.2.5-.4l2.1-4.3c.2-.3.6-.5 1-.5z"
+                        stroke-linejoin="round" stroke-linecap="round"/>
+                </svg>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="group flex items-center justify-between dropdown-menu-item bg-white text-sm text-left  hover:bg-white" onclick="return false;">
+              <span>Users</span>
+              <!-- Hidden checkbox -->
+              <input id="fav-customers" type="checkbox" class="peer sr-only" checked
+               />
+              <!-- SVG is sibling of the peer input -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    class="w-[18px] h-[18px]
+                            transition-[fill,stroke] duration-150
+                            fill-none stroke-none
+                            group-hover:stroke-[#afafaf]
+                            peer-checked:fill-[#645BEF] peer-checked:stroke-transparent cursor-pointer">
+                  <path d="M12 2.5c.4 0 .8.2 1 .5l2.1 4.3c.1.2.3.3.5.4l4.7.7c.8.1 1.1 1.1.5 1.7l-3.4 3.3c-.2.2-.2.4-.2.6l.8 4.7c.1.8-.7 1.4-1.4 1l-4.2-2.2c-.2-.1-.5-.1-.7 0l-4.2 2.2c-.7.4-1.5-.2-1.4-1l.8-4.7c0-.2 0-.5-.2-.6l-3.4-3.3c-.6-.6-.3-1.6.5-1.7l4.7-.7c.2 0 .4-.2.5-.4l2.1-4.3c.2-.3.6-.5 1-.5z"
+                        stroke-linejoin="round" stroke-linecap="round"/>
+                </svg>
+            </a>
+        </li>
+         <li>
+            <a href="#" class="group flex flex-row space-around items-center dropdown-menu-item  text-sm text-left  hover:bg-white" onclick="return false;">
+              <span>Season Bookings</span>
+              <!-- Hidden checkbox -->
+              <input id="fav-customers" type="checkbox" class="peer sr-only"
+              
+               />
+              <!-- SVG is sibling of the peer input -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    class="w-[18px] h-[18px]
+                            transition-[fill,stroke] duration-150
+                            fill-none stroke-none
+                            group-hover:stroke-[#afafaf]
+                            peer-checked:fill-[#645BEF] peer-checked:stroke-transparent cursor-pointer">
+                  <path d="M12 2.5c.4 0 .8.2 1 .5l2.1 4.3c.1.2.3.3.5.4l4.7.7c.8.1 1.1 1.1.5 1.7l-3.4 3.3c-.2.2-.2.4-.2.6l.8 4.7c.1.8-.7 1.4-1.4 1l-4.2-2.2c-.2-.1-.5-.1-.7 0l-4.2 2.2c-.7.4-1.5-.2-1.4-1l.8-4.7c0-.2 0-.5-.2-.6l-3.4-3.3c-.6-.6-.3-1.6.5-1.7l4.7-.7c.2 0 .4-.2.5-.4l2.1-4.3c.2-.3.6-.5 1-.5z"
+                        stroke-linejoin="round" stroke-linecap="round"/>
+                </svg>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="flex group flex-row space-around items-center dropdown-menu-item  text-sm text-left  hover:bg-white" onclick="return false;">
+              <span>Products</span>
+              <!-- Hidden checkbox -->
+              <input id="fav-customers" type="checkbox" class="peer sr-only"
+              
+               />
+              <!-- SVG is sibling of the peer input -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    class="w-[18px] h-[18px]
+                            transition-[fill,stroke] duration-150
+                            fill-none stroke-none
+                            group-hover:stroke-[#afafaf]
+                            peer-checked:fill-[#645BEF] peer-checked:stroke-transparent cursor-pointer">
+                  <path d="M12 2.5c.4 0 .8.2 1 .5l2.1 4.3c.1.2.3.3.5.4l4.7.7c.8.1 1.1 1.1.5 1.7l-3.4 3.3c-.2.2-.2.4-.2.6l.8 4.7c.1.8-.7 1.4-1.4 1l-4.2-2.2c-.2-.1-.5-.1-.7 0l-4.2 2.2c-.7.4-1.5-.2-1.4-1l.8-4.7c0-.2 0-.5-.2-.6l-3.4-3.3c-.6-.6-.3-1.6.5-1.7l4.7-.7c.2 0 .4-.2.5-.4l2.1-4.3c.2-.3.6-.5 1-.5z"
+                        stroke-linejoin="round" stroke-linecap="round"/>
+                </svg>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="group flex flex-row space-around items-center dropdown-menu-item  text-sm text-lefthover:bg-white" onclick="return false;">
+              <span>Passes</span>
+              <!-- Hidden checkbox -->
+              <input id="fav-customers" type="checkbox" class="peer sr-only"
+              
+               />
+              <!-- SVG is sibling of the peer input -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    class="w-[18px] h-[18px]
+                            transition-[fill,stroke] duration-150
+                            fill-none stroke-none
+                            group-hover:stroke-[#afafaf]
+                            peer-checked:fill-[#645BEF] peer-checked:stroke-transparent cursor-pointer">
+                  <path d="M12 2.5c.4 0 .8.2 1 .5l2.1 4.3c.1.2.3.3.5.4l4.7.7c.8.1 1.1 1.1.5 1.7l-3.4 3.3c-.2.2-.2.4-.2.6l.8 4.7c.1.8-.7 1.4-1.4 1l-4.2-2.2c-.2-.1-.5-.1-.7 0l-4.2 2.2c-.7.4-1.5-.2-1.4-1l.8-4.7c0-.2 0-.5-.2-.6l-3.4-3.3c-.6-.6-.3-1.6.5-1.7l4.7-.7c.2 0 .4-.2.5-.4l2.1-4.3c.2-.3.6-.5 1-.5z"
+                        stroke-linejoin="round" stroke-linecap="round"/>
+                </svg>
+            </a>
+        </li>
+       
+      </ul>
+    </div>
+  </li>
+  <li class="me-2">
+    <button
+      id="reportsBtn"
+      data-dropdown-toggle="reports"
+      class="flex items-center h-9 px-5 py-3 rounded-[32px] leading-3 hover:text-gray-900 hover:bg-natural-white"
+    >
+      <span class="flex items-center gap-[6px]">
+        Reports
+        <img class="size-5" src='icons/chevron-down.svg' alt='a chevron'>
+      </span>
+    </button>
+    <!-- Dropdown menu -->
+    <div
+      id="reports"
+      class="z-50 hidden dropdown-menu "
+    >
+      <ul class="flex flex-col gap-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownLargeButton">
+        <li class="">
+          <a href="#" class="block dropdown-menu-item text-sm text-left hover:bg-white">Seasons</a>
+        </li>
+        <li class="">
+          <a href="#" class="block dropdown-menu-item text-sm text-left  hover:bg-white">Daily Fixtures</a>
+        </li>
+        <li class="">
+          <a href="#" class="block dropdown-menu-item text-sm text-left  hover:bg-white">Revenues</a>
+        </li>
+        <li class="">
+          <a href="#" class="block dropdown-menu-item text-sm text-left  hover:bg-white">Outstanding Accounts</a>
+        </li>
+      </ul>
+    </div>
+  </li>
+</ul>

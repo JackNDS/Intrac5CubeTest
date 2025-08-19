@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .table-cell {
+    @apply w-[225px] relative border-b border-l border-dashed border-gray-light;
+  }
+
+  .courts {
+    @apply border border-dashed border-gray-light border-t-0 p-2 text-center;
+  }
+
+  .courts-many {
+    @apply w-[225px] px-3 py-2 text-center bg-white border border-dashed border-gray-light border-t-0;
+  }
+
+  .table-wrapper {
+    @apply bg-white rounded-l-[20px] overflow-x-auto overflow-y-visible [-webkit-overflow-scrolling:touch];
+  }
+
+  .cell-many {
+    @apply w-[225px] relative border-b border-l border-dashed border-gray-light;
+  }
+
+  .time-shadow-wrapper {
+    @apply flex w-[120px] justify-center items-center shadow-[5px_5px_12px_0_rgba(0,0,0,0.05)] h-[80px] text-[.75rem];
+  }
+
+  .time-shadow-wrapper-title {
+    @apply flex w-[120px] justify-center items-center shadow-[5px_5px_12px_0_rgba(0,0,0,0.05)] h-10 text-[.75rem];
+  }
+
+  .time-column {
+    @apply w-[120px] border-b border-dashed border-gray-light text-[.75rem] text-center;
+  }
+
+  .time-column-many {
+    @apply sticky left-0 z-40 bg-white text-right align-middle border-b border-dashed border-gray-light;
+  }
+
+  .booking-tab {
+    @apply inline-block h-9 px-5 py-3 rounded-[32px] leading-3 hover:bg-natural-white;
+  }
+
+  .booking-item-activated {
+    @apply inline-block h-9 px-5 py-3 leading-3 rounded-[32px] text-white text-center bg-purple;
+  }
+
+  .rounded-panel {
+    @apply flex flex-wrap text-center bg-white gap-[6px] p-1 rounded-[40px] h-[45px] w-fit;
+  }
+
+  .booking-filter-btn {
+    @apply flex items-center h-9 px-5 py-3 rounded-[32px] leading-3 hover:bg-natural-white;
+  }
+  .dropdown-menu {
+    @apply backdrop-blur-[6px] 
+  shadow-[0px_7px_44px_0px_rgba(0,0,0,0.25)] 
+  border border-[#DEE0E2] 
+  bg-[#F7F7F7] 
+  w-[188px] h-[516px] 
+  absolute top-[156px] left-[1154px] 
+  rounded-[20px] 
+  p-[6px] gap-[2px] 
+  opacity-100;
+  }
+  .dropdown-menu-item {
+    @apply w-[176px] h-[44px] 
+  rounded-[30px] 
+  flex justify-between 
+  opacity-100 
+  pt-[12px] pr-[16px] pb-[12px] pl-[16px];
+  }
+  .star {
+    @apply w-[13.33px] h-[13.33px] 
+      transition-colors 
+      text-transparent stroke-[#E7E7E7]
+      peer-hover:stroke-[#a1a1aa]     
+      peer-checked:fill-[#645BEF]  
+      peer-checked:stroke-0;
+  }
+}
