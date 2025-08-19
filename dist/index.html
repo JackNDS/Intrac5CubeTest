@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    <link rel="shortcut icon" href="favicon/favicon.ico"/>
+    <link rel="stylesheet" href="css/style.bundle.css"/>
+
+    <title>Intrac | Index</title>
+
+<link href="./css/style.bundle.css" rel="stylesheet"></head>
+<body>
+<div class="main-container">
+  <header>
+    <nav class="bg-transparent border-gray-200">
+      <div class="max-w-full mx-auto py-4 flex items-center justify-between gap-4">
+
+        <!-- Left: Logo -->
+        <a href="/index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <img src="img/intrac-logo.svg" class="h-8" alt="Logo" />
+        </a>
+
+        <!-- Mobile burger (controls #navbar-user) -->
+        <button
+          type="button"
+          class="lg:hidden inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          data-collapse-toggle="navbar-user"
+          aria-controls="navbar-user"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M1 1h15M1 7h15M1 13h15"/>
+          </svg>
+        </button>
+
+        <!-- Center on lg+: Nav (collapsible) -->
+        <div id="navbar-user"
+             class="hidden w-full items-center justify-between lg:flex lg:w-auto lg:order-1">
+          <ul class="flex flex-col lg:flex-row lg:space-x-8 rtl:space-x-reverse p-4 lg:p-0 mt-4 lg:mt-0 border lg:border-0">
+            <li>
+              <a href="/" class="nav-btn" aria-current="page">Dashboard</a>
+            </li>
+            <li>
+              <a href="#" class="nav-btn">Space Bookings</a>
+            </li>
+            <li>
+              <a href="#" class="nav-btn">Events</a>
+            </li>
+            <li>
+              <a href="#" class="nav-btn">Staff Roster</a>
+            </li>
+            <li>
+              <a href="#" class="nav-btn">Private Lessons</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: User menu (dropdown) -->
+        <div class="relative flex items-center lg:order-2 gap-3">
+          <div class="flex items-center justify-center size-[48px] rounded-full bg-white cursor-pointer">
+            <img src='icons/notification.svg' alt='a bell'>
+          </div>
+          <button
+            type="button"
+            id="user-menu-button"
+            aria-expanded="false"
+            data-dropdown-toggle="user-dropdown"
+            data-dropdown-placement="bottom-end"
+            class="flex text-sm bg-gray-800 rounded-full focus:ring-gray-300 focus:ring-0"
+          >
+            <span class="sr-only">Open user menu</span>
+
+            <img class="w-[48px] h-[48px] rounded-full mr-3" src="img/jnds.jpeg" alt="user photo">
+            <div class="flex flex-col items-start mt-1">
+              <p class='leading-5' >Jack Scott</p>
+              <p class='text-[0.85rem] font-aeonik-md text-purple'>5sports</p>
+            </div>
+
+          </button>
+
+          <!-- Dropdown -->
+          <div id="user-dropdown"
+               class="hidden p-4 absolute right-0 top-12 z-50 my-2 w-56 list-none
+         divide-y divide-gray-100 rounded-lg bg-white shadow-lg !transform !-translate-x-[23px] !translate-y-[70px]
+         before:content-[''] before:absolute before:-top-2 before:right-[45%]
+         before:w-4 before:h-4 before:bg-white before:rotate-45 before:shadow-lg before:rounded-[3px]"
+          >
+            <div class="leading-[140%] text-center border-b border-bgc">
+              <span class="block text-gray">You are logged in as</span>
+              <span class="block text-gray truncate">Jack Scott</span>
+              <a href="#" class="block p-3 mt-3 text-sm text-gray-700 hover:text-purple font-aeonik-md">Change Password</a>
+            </div>
+            <a href="#" class="block border-none p-3 text-center text-gray-700 hover:text-purple font-aeonik-md">Logout</a>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+
+
+
+<div style="display: none">
+    <div id="content">content</div>
+</div>
+
+<main class="page__main _01">
+    <ul style="padding: 100px 50px;">
+        <li><a href="/booking.html">Booking</a></li>
+        <li><a href="/booking-8.html">Booking-8</a></li>
+        <li><a href="/booking-many.html">Booking. More then 8</a></li>
+    </ul>
+</main>
+
+        <footer class="footer">
+            
+        </footer>
+    </div>
+
+    <script src="js/bundle.js"></script>
+  <script src="./js/bundle.js"></script></body>
+</html>
+

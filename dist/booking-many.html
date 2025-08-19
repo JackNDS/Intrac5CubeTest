@@ -1,0 +1,960 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+    <link rel="shortcut icon" href="favicon/favicon.ico"/>
+    <link rel="stylesheet" href="css/style.bundle.css"/>
+
+    <title>Intrac | Bookings</title>
+
+<link href="./css/style.bundle.css" rel="stylesheet"></head>
+<body>
+<div class="main-container">
+  <header>
+    <nav class="bg-transparent border-gray-200">
+      <div class="max-w-full mx-auto py-4 flex items-center justify-between gap-4">
+
+        <!-- Left: Logo -->
+        <a href="/index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <img src="img/intrac-logo.svg" class="h-8" alt="Logo" />
+        </a>
+
+        <!-- Mobile burger (controls #navbar-user) -->
+        <button
+          type="button"
+          class="lg:hidden inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+          data-collapse-toggle="navbar-user"
+          aria-controls="navbar-user"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M1 1h15M1 7h15M1 13h15"/>
+          </svg>
+        </button>
+
+        <!-- Center on lg+: Nav (collapsible) -->
+        <div id="navbar-user"
+             class="hidden w-full items-center justify-between lg:flex lg:w-auto lg:order-1">
+          <ul class="flex flex-col lg:flex-row lg:space-x-8 rtl:space-x-reverse p-4 lg:p-0 mt-4 lg:mt-0 border lg:border-0">
+            <li>
+              <a href="/" class="nav-btn" aria-current="page">Dashboard</a>
+            </li>
+            <li>
+              <a href="#" class="nav-btn">Space Bookings</a>
+            </li>
+            <li>
+              <a href="#" class="nav-btn">Events</a>
+            </li>
+            <li>
+              <a href="#" class="nav-btn">Staff Roster</a>
+            </li>
+            <li>
+              <a href="#" class="nav-btn">Private Lessons</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: User menu (dropdown) -->
+        <div class="relative flex items-center lg:order-2 gap-3">
+          <div class="flex items-center justify-center size-[48px] rounded-full bg-white cursor-pointer">
+            <img src='icons/notification.svg' alt='a bell'>
+          </div>
+          <button
+            type="button"
+            id="user-menu-button"
+            aria-expanded="false"
+            data-dropdown-toggle="user-dropdown"
+            data-dropdown-placement="bottom-end"
+            class="flex text-sm bg-gray-800 rounded-full focus:ring-gray-300 focus:ring-0"
+          >
+            <span class="sr-only">Open user menu</span>
+
+            <img class="w-[48px] h-[48px] rounded-full mr-3" src="img/jnds.jpeg" alt="user photo">
+            <div class="flex flex-col items-start mt-1">
+              <p class='leading-5' >Jack Scott</p>
+              <p class='text-[0.85rem] font-aeonik-md text-purple'>5sports</p>
+            </div>
+
+          </button>
+
+          <!-- Dropdown -->
+          <div id="user-dropdown"
+               class="hidden p-4 absolute right-0 top-12 z-50 my-2 w-56 list-none
+         divide-y divide-gray-100 rounded-lg bg-white shadow-lg !transform !-translate-x-[23px] !translate-y-[70px]
+         before:content-[''] before:absolute before:-top-2 before:right-[45%]
+         before:w-4 before:h-4 before:bg-white before:rotate-45 before:shadow-lg before:rounded-[3px]"
+          >
+            <div class="leading-[140%] text-center border-b border-bgc">
+              <span class="block text-gray">You are logged in as</span>
+              <span class="block text-gray truncate">Jack Scott</span>
+              <a href="#" class="block p-3 mt-3 text-sm text-gray-700 hover:text-purple font-aeonik-md">Change Password</a>
+            </div>
+            <a href="#" class="block border-none p-3 text-center text-gray-700 hover:text-purple font-aeonik-md">Logout</a>
+          </div>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<main class="page__main">
+  <div class="flex flex-col gap-6 my-6">
+    <div class="flex justify-between items-center">
+      <h1 class="text-4xl text-center leading-[1] h-[40px]">Space Bookings</h1>
+      <ul class="rounded-panel">
+  <li class="me-2">
+    <a href="#" class="booking-item-activated" aria-current="page">Cash Sale</a>
+  </li>
+  <li class="me-2">
+    <a
+      href="#"
+      class="booking-filter-btn"
+    >
+      Customers
+    </a>
+  </li>
+  <li class="me-2">
+    <a
+      href="#"
+      class="booking-filter-btn"
+    >
+      Users
+    </a>
+  </li>
+  <li class="me-2">
+    <button
+      id="functionsBtn"
+      data-dropdown-toggle="functions"
+      class="booking-filter-btn"
+    >
+      <span class="flex items-center gap-[6px]">
+        Functions
+        <img class="size-5" src='icons/chevron-down.svg' alt='a chevron'>
+      </span>
+    </button>
+    <!-- Dropdown menu -->
+    <div id="functions" class="z-50 hidden dropdown-menu ">
+      <ul class="flex flex-col gap-1 text-sm text-gray-700 dark:text-gray-200 " aria-labelledby="dropdownLargeButton">
+        <li>
+            <a href="#" class="group flex items-center justify-between dropdown-menu-item bg-white text-sm text-left  hover:bg-white" onclick="return false;">
+              <span>Cash Sale</span>
+              <!-- Hidden checkbox -->
+              <input id="fav-customers" type="checkbox" class="peer sr-only" checked />
+              <!-- SVG is sibling of the peer input -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    class="w-[18px] h-[18px]
+                            transition-[fill,stroke] duration-150
+                            fill-none stroke-none
+                            group-hover:stroke-[#afafaf]
+                            peer-checked:fill-[#645BEF] peer-checked:stroke-transparent cursor-pointer">
+                  <path d="M12 2.5c.4 0 .8.2 1 .5l2.1 4.3c.1.2.3.3.5.4l4.7.7c.8.1 1.1 1.1.5 1.7l-3.4 3.3c-.2.2-.2.4-.2.6l.8 4.7c.1.8-.7 1.4-1.4 1l-4.2-2.2c-.2-.1-.5-.1-.7 0l-4.2 2.2c-.7.4-1.5-.2-1.4-1l.8-4.7c0-.2 0-.5-.2-.6l-3.4-3.3c-.6-.6-.3-1.6.5-1.7l4.7-.7c.2 0 .4-.2.5-.4l2.1-4.3c.2-.3.6-.5 1-.5z"
+                        stroke-linejoin="round" stroke-linecap="round"/>
+                </svg>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="group flex items-center justify-between dropdown-menu-item bg-white text-sm text-left  hover:bg-white" onclick="return false;">
+              <span>Customers</span>
+              <!-- Hidden checkbox -->
+              <input id="fav-customers" type="checkbox" class="peer sr-only" checked />
+              <!-- SVG is sibling of the peer input -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    class="w-[18px] h-[18px]
+                            transition-[fill,stroke] duration-150
+                            fill-none stroke-none
+                            group-hover:stroke-[#afafaf]
+                            peer-checked:fill-[#645BEF] peer-checked:stroke-transparent cursor-pointer">
+                  <path d="M12 2.5c.4 0 .8.2 1 .5l2.1 4.3c.1.2.3.3.5.4l4.7.7c.8.1 1.1 1.1.5 1.7l-3.4 3.3c-.2.2-.2.4-.2.6l.8 4.7c.1.8-.7 1.4-1.4 1l-4.2-2.2c-.2-.1-.5-.1-.7 0l-4.2 2.2c-.7.4-1.5-.2-1.4-1l.8-4.7c0-.2 0-.5-.2-.6l-3.4-3.3c-.6-.6-.3-1.6.5-1.7l4.7-.7c.2 0 .4-.2.5-.4l2.1-4.3c.2-.3.6-.5 1-.5z"
+                        stroke-linejoin="round" stroke-linecap="round"/>
+                </svg>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="group flex items-center justify-between dropdown-menu-item bg-white text-sm text-left  hover:bg-white" onclick="return false;">
+              <span>Users</span>
+              <!-- Hidden checkbox -->
+              <input id="fav-customers" type="checkbox" class="peer sr-only" checked
+               />
+              <!-- SVG is sibling of the peer input -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    class="w-[18px] h-[18px]
+                            transition-[fill,stroke] duration-150
+                            fill-none stroke-none
+                            group-hover:stroke-[#afafaf]
+                            peer-checked:fill-[#645BEF] peer-checked:stroke-transparent cursor-pointer">
+                  <path d="M12 2.5c.4 0 .8.2 1 .5l2.1 4.3c.1.2.3.3.5.4l4.7.7c.8.1 1.1 1.1.5 1.7l-3.4 3.3c-.2.2-.2.4-.2.6l.8 4.7c.1.8-.7 1.4-1.4 1l-4.2-2.2c-.2-.1-.5-.1-.7 0l-4.2 2.2c-.7.4-1.5-.2-1.4-1l.8-4.7c0-.2 0-.5-.2-.6l-3.4-3.3c-.6-.6-.3-1.6.5-1.7l4.7-.7c.2 0 .4-.2.5-.4l2.1-4.3c.2-.3.6-.5 1-.5z"
+                        stroke-linejoin="round" stroke-linecap="round"/>
+                </svg>
+            </a>
+        </li>
+         <li>
+            <a href="#" class="group flex flex-row space-around items-center dropdown-menu-item  text-sm text-left  hover:bg-white" onclick="return false;">
+              <span>Season Bookings</span>
+              <!-- Hidden checkbox -->
+              <input id="fav-customers" type="checkbox" class="peer sr-only"
+              
+               />
+              <!-- SVG is sibling of the peer input -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    class="w-[18px] h-[18px]
+                            transition-[fill,stroke] duration-150
+                            fill-none stroke-none
+                            group-hover:stroke-[#afafaf]
+                            peer-checked:fill-[#645BEF] peer-checked:stroke-transparent cursor-pointer">
+                  <path d="M12 2.5c.4 0 .8.2 1 .5l2.1 4.3c.1.2.3.3.5.4l4.7.7c.8.1 1.1 1.1.5 1.7l-3.4 3.3c-.2.2-.2.4-.2.6l.8 4.7c.1.8-.7 1.4-1.4 1l-4.2-2.2c-.2-.1-.5-.1-.7 0l-4.2 2.2c-.7.4-1.5-.2-1.4-1l.8-4.7c0-.2 0-.5-.2-.6l-3.4-3.3c-.6-.6-.3-1.6.5-1.7l4.7-.7c.2 0 .4-.2.5-.4l2.1-4.3c.2-.3.6-.5 1-.5z"
+                        stroke-linejoin="round" stroke-linecap="round"/>
+                </svg>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="flex group flex-row space-around items-center dropdown-menu-item  text-sm text-left  hover:bg-white" onclick="return false;">
+              <span>Products</span>
+              <!-- Hidden checkbox -->
+              <input id="fav-customers" type="checkbox" class="peer sr-only"
+              
+               />
+              <!-- SVG is sibling of the peer input -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    class="w-[18px] h-[18px]
+                            transition-[fill,stroke] duration-150
+                            fill-none stroke-none
+                            group-hover:stroke-[#afafaf]
+                            peer-checked:fill-[#645BEF] peer-checked:stroke-transparent cursor-pointer">
+                  <path d="M12 2.5c.4 0 .8.2 1 .5l2.1 4.3c.1.2.3.3.5.4l4.7.7c.8.1 1.1 1.1.5 1.7l-3.4 3.3c-.2.2-.2.4-.2.6l.8 4.7c.1.8-.7 1.4-1.4 1l-4.2-2.2c-.2-.1-.5-.1-.7 0l-4.2 2.2c-.7.4-1.5-.2-1.4-1l.8-4.7c0-.2 0-.5-.2-.6l-3.4-3.3c-.6-.6-.3-1.6.5-1.7l4.7-.7c.2 0 .4-.2.5-.4l2.1-4.3c.2-.3.6-.5 1-.5z"
+                        stroke-linejoin="round" stroke-linecap="round"/>
+                </svg>
+            </a>
+        </li>
+        <li>
+            <a href="#" class="group flex flex-row space-around items-center dropdown-menu-item  text-sm text-left hover:bg-white" onclick="return false;">
+              <span>Passes</span>
+              <!-- Hidden checkbox -->
+              <input id="fav-customers" type="checkbox" class="peer sr-only"
+              
+               />
+              <!-- SVG is sibling of the peer input -->
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    class="w-[18px] h-[18px]
+                            transition-[fill,stroke] duration-150
+                            fill-none stroke-none
+                            group-hover:stroke-[#afafaf]
+                            peer-checked:fill-[#645BEF] peer-checked:stroke-transparent cursor-pointer">
+                  <path d="M12 2.5c.4 0 .8.2 1 .5l2.1 4.3c.1.2.3.3.5.4l4.7.7c.8.1 1.1 1.1.5 1.7l-3.4 3.3c-.2.2-.2.4-.2.6l.8 4.7c.1.8-.7 1.4-1.4 1l-4.2-2.2c-.2-.1-.5-.1-.7 0l-4.2 2.2c-.7.4-1.5-.2-1.4-1l.8-4.7c0-.2 0-.5-.2-.6l-3.4-3.3c-.6-.6-.3-1.6.5-1.7l4.7-.7c.2 0 .4-.2.5-.4l2.1-4.3c.2-.3.6-.5 1-.5z"
+                        stroke-linejoin="round" stroke-linecap="round"/>
+                </svg>
+            </a>
+        </li>
+       
+      </ul>
+    </div>
+  </li>
+  <li class="me-2">
+    <button
+      id="reportsBtn"
+      data-dropdown-toggle="reports"
+      class="flex items-center h-9 px-5 py-3 rounded-[32px] leading-3 hover:text-gray-900 hover:bg-natural-white"
+    >
+      <span class="flex items-center gap-[6px]">
+        Reports
+        <img class="size-5" src='icons/chevron-down.svg' alt='a chevron'>
+      </span>
+    </button>
+    <!-- Dropdown menu -->
+    <div
+      id="reports"
+      class="z-50 hidden dropdown-menu "
+    >
+      <ul class="flex flex-col gap-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownLargeButton">
+        <li class="">
+          <a href="#" class="block dropdown-menu-item text-sm text-left hover:bg-white">Seasons</a>
+        </li>
+        <li class="">
+          <a href="#" class="block dropdown-menu-item text-sm text-left  hover:bg-white">Daily Fixtures</a>
+        </li>
+        <li class="">
+          <a href="#" class="block dropdown-menu-item text-sm text-left  hover:bg-white">Revenues</a>
+        </li>
+        <li class="">
+          <a href="#" class="block dropdown-menu-item text-sm text-left  hover:bg-white">Outstanding Accounts</a>
+        </li>
+      </ul>
+    </div>
+  </li>
+</ul>
+
+    </div>
+    <div class="flex justify-between">
+      <ul class="rounded-panel">
+  <li class="me-2">
+    <a
+      href="#"
+      class="booking-item-activated"
+      aria-current="page"
+    >
+      All Booking
+    </a>
+  </li>
+  <li class="me-2">
+    <a
+      href="#"
+      class="booking-tab"
+    >
+      5
+      -a-side</a>
+  </li>
+  <li class="me-2">
+    <a
+      href="#"
+      class="booking-tab"
+    >
+      Main
+    </a>
+  </li>
+  <li class="">
+    <a
+      href="#"
+      class="booking-tab"
+    >
+      Training
+    </a>
+  </li>
+</ul>
+
+      <ul class="flex flex-wrap text-center bg-white gap-[6px] p-1 rounded-[40px] h-[45px] w-fit">
+  <li class="me-2">
+    <button
+      id="calendarBtn"
+      data-dropdown-toggle="calendar"
+      class="flex items-center h-9 px-2 py-3 rounded-[32px] leading-3 hover:text-gray-900 hover:bg-natural-white"
+    >
+      <img src='icons/chevron-left.svg' alt='a chevron'>
+      <span class="flex items-center mx-6 gap-[6px]">
+        Tuesday, 29 Jul 2025
+        <img class="size-5" src='icons/chevron-down.svg' alt='a chevron'>
+      </span>
+      <img src='icons/chevron-right.svg' alt='a chevron'>
+    </button>
+    <!-- Dropdown menu -->
+    <div id="calendar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
+      CALENDAR
+    </div>
+  </li>
+  <li class="me-2">
+    <a href="#" class="flex items-center h-9 p-2 rounded-[32px] leading-3 hover:text-gray-900 bg-natural-white">
+      <img src='icons/maximize.svg' alt='a frame'>
+    </a>
+  </li>
+  <li class="me-2">
+    <a href="#" class="flex items-center h-9 p-2 rounded-[32px] leading-3 hover:text-gray-900 bg-natural-white">
+      <img src='icons/minutes.svg' alt='a clock'>
+    </a>
+  </li>
+</ul>
+
+    </div>
+  </div>
+
+  <!-- Scroll container -->
+  <div class="table-wrapper">
+    <!-- Set a min width: 120px (time) + 8 * 225px (courts) -->
+    <table class="border-collapse min-w-[1920px] w-full">
+      <thead class="sticky top-0 z-10 bg-gray-50">
+      <tr>
+        <!-- sticky Time header -->
+        <td class="time-column-many">
+          <div class="time-shadow-wrapper-title">
+            Time
+          </div>
+        </td>
+        
+        <th class="courts-many">
+          Court 1
+        </th>
+        
+        <th class="courts-many">
+          Court 2
+        </th>
+        
+        <th class="courts-many">
+          Court 3
+        </th>
+        
+        <th class="courts-many">
+          Court 4
+        </th>
+        
+        <th class="courts-many">
+          Court 5
+        </th>
+        
+        <th class="courts-many">
+          Court 6
+        </th>
+        
+        <th class="courts-many">
+          Court 7
+        </th>
+        
+        <th class="courts-many">
+          Court 8
+        </th>
+        
+        <th class="courts-many">
+          Court 9
+        </th>
+        
+        <th class="courts-many">
+          Court 10
+        </th>
+        
+        <th class="courts-many">
+          Court 11
+        </th>
+        
+        <th class="courts-many">
+          Court 12
+        </th>
+        
+      </tr>
+      </thead>
+
+      <tbody>
+      <!-- 9:00 am -->
+      <tr class="h-[80px]">
+        <!-- sticky Time cell -->
+        <td class="time-column-many">
+          <div class="time-shadow-wrapper">
+            9:00 am
+          </div>
+        </td>
+
+        <td class="cell-many"></td>
+        <td class="cell-many">
+          
+
+<!-- absolute card that can span horizontally and stack vertically -->
+<!-- parent <td> must be class="relative" -->
+<div
+  class="absolute left-0 z-1 m-1
+         top-[var(--card-top)]
+         w-[calc(99%*var(--card-span))]
+         h-[var(--card-height)]"
+  style="--card-span:2; --card-height:35px; --card-top:0px;"
+>
+  <div class="flex justify-end h-full relative rounded-md shadow-sm min-h-[16px] bg-green">
+    <div class="w-[99%] py-[2px] px-1.5 relative z-10 rounded-md bg-green-100 shadow-sm p-6 flex flex-col">
+      <h3 class="flex items-center text-[.85rem] justify-between w-full leading-4">
+        <span class="truncate">Annette Black</span>
+
+        
+        <!-- Done icon -->
+        <svg title="done" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.5 9.5L6 8" stroke="#43A047" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10 7L7.5 9.5" stroke="#43A047" stroke-linecap="round" stroke-linejoin="round"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M8 14C4.6863 14 2 11.3137 2 8V8C2 4.68629 4.6863 2 8 2V2C11.3137 2 14 4.68629 14 8V8C14 11.3137 11.3137 14 8 14V14Z" stroke="#43A047" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        
+      </h3>
+
+      
+      <p class="text-[.85rem] text-gray leading-4">6:00 – 8:00 pm</p>
+      
+    </div>
+  </div>
+</div>
+
+
+        </td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+      </tr>
+
+      <!-- 10:00 am -->
+      <tr class="h-[80px]">
+        <td class="time-column-many">
+          <div class="time-shadow-wrapper">
+            10:00 am
+          </div>
+        </td>
+
+        <td class="cell-many">
+          
+
+<!-- absolute card that can span horizontally and stack vertically -->
+<!-- parent <td> must be class="relative" -->
+<div
+  class="absolute left-0 z-1 m-1
+         top-[var(--card-top)]
+         w-[calc(99%*var(--card-span))]
+         h-[var(--card-height)]"
+  style="--card-span:3; --card-height:70px; --card-top:0px;"
+>
+  <div class="flex justify-end h-full relative rounded-md shadow-sm min-h-[16px] bg-yellow">
+    <div class="w-[99%] py-[2px] px-1.5 relative z-10 rounded-md bg-yellow-100 shadow-sm p-6 flex flex-col">
+      <h3 class="flex items-center text-[.85rem] justify-between w-full leading-4">
+        <span class="truncate">Julia Roberts</span>
+
+        
+        <!-- Attention icon -->
+        <svg title="attention" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.99966 10.6667C7.90766 10.6667 7.83299 10.7413 7.83366 10.8333C7.83366 10.9253 7.90833 11 8.00033 11C8.09233 11 8.16699 10.9253 8.16699 10.8333C8.16699 10.7413 8.09233 10.6667 7.99966 10.6667" stroke="#F36A6A" stroke-linecap="round" stroke-linejoin="round"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M8 14V14C4.686 14 2 11.314 2 8V8C2 4.686 4.686 2 8 2V2C11.314 2 14 4.686 14 8V8C14 11.314 11.314 14 8 14Z" stroke="#F36A6A" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8.00033 5.16675V8.50008" stroke="#F36A6A" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        
+      </h3>
+
+      
+      <p class="text-[.85rem] text-gray leading-4">6:00 – 8:00 pm</p>
+      
+    </div>
+  </div>
+</div>
+
+
+        </td>
+        <td class="cell-many"></td>
+        <td class="cell-many"></td>
+        <td class="cell-many"></td>
+        <td class="cell-many">
+          
+
+<!-- absolute card that can span horizontally and stack vertically -->
+<!-- parent <td> must be class="relative" -->
+<div
+  class="absolute left-0 z-1 m-1
+         top-[var(--card-top)]
+         w-[calc(99%*var(--card-span))]
+         h-[var(--card-height)]"
+  style="--card-span:2; --card-height:150px; --card-top:0px;"
+>
+  <div class="flex justify-end h-full relative rounded-md shadow-sm min-h-[16px] bg-blue">
+    <div class="w-[99%] py-[2px] px-1.5 relative z-10 rounded-md bg-blue-100 shadow-sm p-6 flex flex-col">
+      <h3 class="flex items-center text-[.85rem] justify-between w-full leading-4">
+        <span class="truncate">Tom Hanks</span>
+
+        
+        <!-- Done icon -->
+        <svg title="done" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.5 9.5L6 8" stroke="#43A047" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10 7L7.5 9.5" stroke="#43A047" stroke-linecap="round" stroke-linejoin="round"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M8 14C4.6863 14 2 11.3137 2 8V8C2 4.68629 4.6863 2 8 2V2C11.3137 2 14 4.68629 14 8V8C14 11.3137 11.3137 14 8 14V14Z" stroke="#43A047" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        
+      </h3>
+
+      
+      <p class="text-[.85rem] text-gray leading-4">6:00 – 8:00 pm</p>
+      
+    </div>
+  </div>
+</div>
+
+
+        </td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+      </tr>
+
+      <!-- 11:00 am -->
+      <tr class="h-[80px] text-[.75rem]">
+        <td class="time-column-many">
+          <div class="time-shadow-wrapper">
+            11:00 am
+          </div>
+        </td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+      </tr>
+
+      <!-- 12:00 am (stacked short cards) -->
+      <tr class="h-[80px]">
+        <td class="time-column-many">
+          <div class="time-shadow-wrapper">
+            12:00 am
+          </div>
+        </td>
+
+        <td class="cell-many"
+            style="min-height:72px">
+          
+
+<!-- absolute card that can span horizontally and stack vertically -->
+<!-- parent <td> must be class="relative" -->
+<div
+  class="absolute left-0 z-1 m-1
+         top-[var(--card-top)]
+         w-[calc(99%*var(--card-span))]
+         h-[var(--card-height)]"
+  style="--card-span:2; --card-height:16.5px; --card-top:0px;"
+>
+  <div class="flex justify-end h-full relative rounded-md shadow-sm min-h-[16px] bg-gray">
+    <div class="w-[99%] py-[2px] px-1.5 relative z-10 rounded-md bg-gray-100 shadow-sm p-6 flex items-center">
+      <h3 class="flex items-center text-[.85rem] justify-between w-full leading-4">
+        <span class="truncate">Marlin Manson</span>
+
+        
+        <!-- Attention icon -->
+        <svg title="attention" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.99966 10.6667C7.90766 10.6667 7.83299 10.7413 7.83366 10.8333C7.83366 10.9253 7.90833 11 8.00033 11C8.09233 11 8.16699 10.9253 8.16699 10.8333C8.16699 10.7413 8.09233 10.6667 7.99966 10.6667" stroke="#F36A6A" stroke-linecap="round" stroke-linejoin="round"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M8 14V14C4.686 14 2 11.314 2 8V8C2 4.686 4.686 2 8 2V2C11.314 2 14 4.686 14 8V8C14 11.314 11.314 14 8 14Z" stroke="#F36A6A" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8.00033 5.16675V8.50008" stroke="#F36A6A" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        
+      </h3>
+
+      
+    </div>
+  </div>
+</div>
+
+
+          
+
+<!-- absolute card that can span horizontally and stack vertically -->
+<!-- parent <td> must be class="relative" -->
+<div
+  class="absolute left-0 z-1 m-1
+         top-[var(--card-top)]
+         w-[calc(99%*var(--card-span))]
+         h-[var(--card-height)]"
+  style="--card-span:2; --card-height:16.5px; --card-top:18.5px;"
+>
+  <div class="flex justify-end h-full relative rounded-md shadow-sm min-h-[16px] bg-gray">
+    <div class="w-[99%] py-[2px] px-1.5 relative z-10 rounded-md bg-gray-100 shadow-sm p-6 flex items-center">
+      <h3 class="flex items-center text-[.85rem] justify-between w-full leading-4">
+        <span class="truncate">Marlin Manson</span>
+
+        
+        <!-- Attention icon -->
+        <svg title="attention" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.99966 10.6667C7.90766 10.6667 7.83299 10.7413 7.83366 10.8333C7.83366 10.9253 7.90833 11 8.00033 11C8.09233 11 8.16699 10.9253 8.16699 10.8333C8.16699 10.7413 8.09233 10.6667 7.99966 10.6667" stroke="#F36A6A" stroke-linecap="round" stroke-linejoin="round"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M8 14V14C4.686 14 2 11.314 2 8V8C2 4.686 4.686 2 8 2V2C11.314 2 14 4.686 14 8V8C14 11.314 11.314 14 8 14Z" stroke="#F36A6A" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8.00033 5.16675V8.50008" stroke="#F36A6A" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        
+      </h3>
+
+      
+    </div>
+  </div>
+</div>
+
+
+          
+
+<!-- absolute card that can span horizontally and stack vertically -->
+<!-- parent <td> must be class="relative" -->
+<div
+  class="absolute left-0 z-1 m-1
+         top-[var(--card-top)]
+         w-[calc(99%*var(--card-span))]
+         h-[var(--card-height)]"
+  style="--card-span:2; --card-height:16.5px; --card-top:37px;"
+>
+  <div class="flex justify-end h-full relative rounded-md shadow-sm min-h-[16px] bg-gray">
+    <div class="w-[99%] py-[2px] px-1.5 relative z-10 rounded-md bg-gray-100 shadow-sm p-6 flex items-center">
+      <h3 class="flex items-center text-[.85rem] justify-between w-full leading-4">
+        <span class="truncate">Marlin Manson</span>
+
+        
+        <!-- Attention icon -->
+        <svg title="attention" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.99966 10.6667C7.90766 10.6667 7.83299 10.7413 7.83366 10.8333C7.83366 10.9253 7.90833 11 8.00033 11C8.09233 11 8.16699 10.9253 8.16699 10.8333C8.16699 10.7413 8.09233 10.6667 7.99966 10.6667" stroke="#F36A6A" stroke-linecap="round" stroke-linejoin="round"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M8 14V14C4.686 14 2 11.314 2 8V8C2 4.686 4.686 2 8 2V2C11.314 2 14 4.686 14 8V8C14 11.314 11.314 14 8 14Z" stroke="#F36A6A" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M8.00033 5.16675V8.50008" stroke="#F36A6A" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        
+      </h3>
+
+      
+    </div>
+  </div>
+</div>
+
+
+        </td>
+
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+      </tr>
+
+      <!-- 12:00 am (next row) -->
+      <tr class="h-[80px] text-[.75rem]">
+        <td class="time-column-many">
+          <div class="time-shadow-wrapper">
+            13:00 am
+          </div>
+        </td>
+
+        <td class="cell-many">
+          
+
+<!-- absolute card that can span horizontally and stack vertically -->
+<!-- parent <td> must be class="relative" -->
+<div
+  class="absolute left-0 z-1 m-1
+         top-[var(--card-top)]
+         w-[calc(99%*var(--card-span))]
+         h-[var(--card-height)]"
+  style="--card-span:3; --card-height:230px; --card-top:0px;"
+>
+  <div class="flex justify-end h-full relative rounded-md shadow-sm min-h-[16px] bg-purple-dark">
+    <div class="w-[99%] py-[2px] px-1.5 relative z-10 rounded-md bg-purple-100 shadow-sm p-6 flex flex-col">
+      <h3 class="flex items-center text-[.85rem] justify-between w-full leading-4">
+        <span class="truncate">Jak Black</span>
+
+        
+        <!-- Done icon -->
+        <svg title="done" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M7.5 9.5L6 8" stroke="#43A047" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M10 7L7.5 9.5" stroke="#43A047" stroke-linecap="round" stroke-linejoin="round"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M8 14C4.6863 14 2 11.3137 2 8V8C2 4.68629 4.6863 2 8 2V2C11.3137 2 14 4.68629 14 8V8C14 11.3137 11.3137 14 8 14V14Z" stroke="#43A047" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        
+      </h3>
+
+      
+      <p class="text-[.85rem] text-gray leading-4">09:00 – 10:00 pm</p>
+      
+    </div>
+  </div>
+</div>
+
+
+        </td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+      </tr>
+
+      <!-- 13:00–15:00 (example loop) -->
+      
+      <tr class="h-[80px] text-[.75rem]">
+        <td class="time-column-many">
+          <div class="time-shadow-wrapper">
+            14:00 pm
+          </div>
+        </td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+      </tr>
+      
+      <tr class="h-[80px] text-[.75rem]">
+        <td class="time-column-many">
+          <div class="time-shadow-wrapper">
+            15:00 pm
+          </div>
+        </td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+      </tr>
+      
+      <tr class="h-[80px] text-[.75rem]">
+        <td class="time-column-many">
+          <div class="time-shadow-wrapper">
+            16:00 pm
+          </div>
+        </td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+        <td class="cell-many"></td>
+        
+      </tr>
+      
+      </tbody>
+    </table>
+  </div>
+</main>
+
+
+
+        <footer class="footer">
+            
+        </footer>
+    </div>
+
+    <script src="js/bundle.js"></script>
+  <script src="./js/bundle.js"></script></body>
+</html>
+
